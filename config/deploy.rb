@@ -20,3 +20,13 @@ role :db,  "your primary db-server here", :primary => true # This is where Rails
 #     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
 #   end
 # end
+
+# http://github.com/thoughtbot/suspenders/blob/4d9c29a1dfe14a591ac461d5ea8e660f1a642d5b/config/deploy.rb#L40
+namespace :db do
+  desc "Create database password in shared path" 
+  task :password do
+    set :db_password, Proc.new { Capistrano::CLI.password_prompt("Remote database password: ") }
+    run "mkdir -p #{shared_path}/config" 
+    put db_password, "#{shared_path}/config/dbpassword" 
+  end
+end
