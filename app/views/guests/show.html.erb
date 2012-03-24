@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @guest.name %>
+</p>
+
+<p>
+  <b>Code:</b>
+  <%= @guest.code %>
+</p>
+
+<p>
+  <b>Adult guests:</b>
+  <%= @guest.adult_guests %>
+</p>
+
+<p>
+  <b>Child guests:</b>
+  <%= @guest.child_guests %>
+</p>
+
+<p>
+  <b>Rsvp date:</b>
+  <%= @guest.rsvp_date %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @guest.notes %>
+</p>
+
+<p>
+  <b>Private notes:</b>
+  <%= @guest.private_notes %>
+</p>
+
+
+<%= link_to 'Edit', edit_guest_path(@guest) %> |
+<%= link_to 'Back', guests_path %>

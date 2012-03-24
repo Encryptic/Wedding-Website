@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title></title>
+    <meta charset="utf-8">
+    
+	<%= stylesheet_link_tag "reset" %>
+	<%= stylesheet_link_tag "style" %>
+	<%= stylesheet_link_tag "grid" %>
+	<%= javascript_include_tag "cufon-yui" %>
+	<%= javascript_include_tag "english.cufonfonts" %>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script> 
+	<script type="text/javascript">	
+
+	</script>
+	
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:400italic' rel='stylesheet' type='text/css'>  
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=PT+Sans:700' rel='stylesheet' type='text/css'>
+	<!--[if lt IE 8]>
+    <div style=' clear: both; text-align:center; position: relative;'>
+        <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
+        	<img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
+        </a>
+    </div>
+	<![endif]-->
+    <!--[if lt IE 9]>
+   		<script type="text/javascript" src="js/html5.js"></script>
+	<![endif]-->
+	
+	<script type="text/javascript">
+	    Cufon.replace('h1 a', { fontFamily: 'english', hover: true });
+	</script>	
+
+	<%= csrf_meta_tags %>
+</head>
+<body id="page2">
+    <header>
+    	<div class="main">
+        	<h1>
+            	<a href="/">Heather<p class="seperator">&amp;</p><p>Chris</p></a>
+                <em>Our wedding</em>
+            </h1>
+        </div>
+        <div class="menu-row">
+        	<div class="main">
+            	<div class="container_12">
+					<ul id="menu">  
+						<li class="nodrop"><a href="/home">Home</a></li>
+					    <li><a href="/about" class="drop">About</a>
+							<div class="dropdown_2columns">
+								<div class="col_2">  
+					                <p><a href="/about#bride">The Bride</a></p>  
+					                <p><a href="/about#groom">The Groom</a></p>
+									<p><a href="/ceremony-and-reception">The Ceremony and Reception</a></p>
+					            </div>
+							</div>
+						</li>
+					    <li class="nodrop"><a href="/rsvp">RSVP</a></li>
+					    <li class="nodrop"><a href="/registries">Gift Registries</a></li>  
+					    <li class="nodrop"><a href="/contact">Contact</a></li>  
+					</ul>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section id="content">
+        <div class="main">
+            <div class="container_12">
+                <div class="wrapper">
+                    <%= yield %>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="main">
+        	<div class="container_12">
+            	<div class="wrapper">
+                    <div class="grid_5">
+                    	<span class="footer-text">
+                        	<span>Chris &amp; Heather &copy; 2012</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

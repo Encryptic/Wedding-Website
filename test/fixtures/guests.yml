@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  code: MyString
+  adult_guests: 1
+  child_guests: 1
+  rsvp_date: 2012-01-22
+  notes: MyText
+  private_notes: MyText
+
+two:
+  name: MyString
+  code: MyString
+  adult_guests: 1
+  child_guests: 1
+  rsvp_date: 2012-01-22
+  notes: MyText
+  private_notes: MyText

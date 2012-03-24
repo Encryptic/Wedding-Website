@@ -1,0 +1,45 @@
+<%= form_for(@guest) do |f| %>
+  <% if @guest.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@guest.errors.count, "error") %> prohibited this guest from being saved:</h2>
+
+      <ul>
+      <% @guest.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :code %><br />
+    <%= f.text_field :code %>
+  </div>
+  <div class="field">
+    <%= f.label :adult_guests %><br />
+    <%= f.number_field :adult_guests %>
+  </div>
+  <div class="field">
+    <%= f.label :child_guests %><br />
+    <%= f.number_field :child_guests %>
+  </div>
+  <div class="field">
+    <%= f.label :rsvp_date %><br />
+    <%= f.date_select :rsvp_date %>
+  </div>
+  <div class="field">
+    <%= f.label :notes %><br />
+    <%= f.text_area :notes %>
+  </div>
+  <div class="field">
+    <%= f.label :private_notes %><br />
+    <%= f.text_area :private_notes %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

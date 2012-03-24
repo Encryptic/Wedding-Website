@@ -1,0 +1,8 @@
+<p id="notice"><%= notice %></p>
+
+<h2><%= @page.title %></h2>
+
+<p class="img-indent-bot"><%= raw(@page.content) %></p>
+
+<%= link_to 'Edit', edit_page_path(@page) %> |
+<%= link_to 'Back', pages_path %>
