@@ -1,4 +1,12 @@
 class PagesController < ApplicationController
+  before_filter :auth, :only => [:edit, :new, :destroy, :index]
+  
+  def auth
+    unless current_user
+      redirect_to login_url
+    end
+  end
+  
   # GET /pages
   # GET /pages.json
   def index
@@ -8,6 +16,10 @@ class PagesController < ApplicationController
       format.html # index.html.erb
       format.json { render :json => @pages }
     end
+  end
+  
+  def main
+    redirect_to "/home"
   end
 
   # GET /pages/1

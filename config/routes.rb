@@ -1,8 +1,9 @@
 ThebergestoneweddingCom::Application.routes.draw do
   #get "sessions/new"
-  
-  match '/login' => "sessions#new"
-  match '/logout' => "sessions#destroy"
+
+  get "logout" => "sessions#destroy", :as => "logout"
+  get "login" => "sessions#new", :as => "login"
+  get "signup" => "users#new", :as => "signup"
 
   resources :pages
 
@@ -10,11 +11,16 @@ ThebergestoneweddingCom::Application.routes.draw do
   
   resources :upload
   match '/upload' => 'upload#upload'
+  
+  resources :users
+  resources :sessions
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
   match '/:id' => 'pages#show'
+  
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
@@ -61,9 +67,8 @@ ThebergestoneweddingCom::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  #root :to => 'pages#show'
-  
-  match "/" => redirect("/home")
+  root :to => 'pages#main'
+  #match "/" => redirect("/home")
 
   # See how all your routes lay out with "rake routes"
 

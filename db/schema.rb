@@ -13,8 +13,8 @@
 ActiveRecord::Schema.define(:version => 20120129191732) do
 
   create_table "data_files", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "guests", :force => true do |t|
@@ -25,16 +25,16 @@ ActiveRecord::Schema.define(:version => 20120129191732) do
     t.date     "rsvp_date"
     t.text     "notes"
     t.text     "private_notes"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
   end
 
   create_table "pages", :force => true do |t|
     t.string   "title"
     t.text     "content"
     t.string   "slug"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   add_index "pages", ["slug"], :name => "index_pages_on_slug", :unique => true
@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20120129191732) do
     t.string   "email"
     t.string   "password_hash"
     t.string   "password_salt"
+    t.string   "name"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
   end
