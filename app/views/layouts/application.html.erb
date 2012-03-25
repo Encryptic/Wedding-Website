@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title></title>
+    <title>Theberge Stone Wedding <%= yield(:title) %></title>
     <meta charset="utf-8">
     
 	<%= stylesheet_link_tag "reset" %>
@@ -10,9 +10,6 @@
 	<%= javascript_include_tag "cufon-yui" %>
 	<%= javascript_include_tag "english.cufonfonts" %>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script> 
-	<script type="text/javascript">	
-
-	</script>
 	
     <link href='http://fonts.googleapis.com/css?family=PT+Sans:400italic' rel='stylesheet' type='text/css'>  
     <link href='http://fonts.googleapis.com/css?family=PT+Sans' rel='stylesheet' type='text/css'>
@@ -25,7 +22,7 @@
     </div>
 	<![endif]-->
     <!--[if lt IE 9]>
-   		<script type="text/javascript" src="js/html5.js"></script>
+      <%= javascript_include_tag "html5" %>
 	<![endif]-->
 	
 	<script type="text/javascript">
@@ -66,6 +63,10 @@
     </header>
     <section id="content">
         <div class="main">
+        <%if current_user %>
+          <%= link_to "Logout", :controller => "sessions", :action => "destroy" %>
+        <% end %>
+        
             <div class="container_12">
                 <div class="wrapper">
                     <%= yield %>

@@ -26,7 +26,7 @@ after "deploy", "db:password"
 after "deploy", "db:create_symlink"
 after "deploy", "db:migrate"
 after "deploy", "deploy:restart"
-after "deploy", "deploy:create_symlink"
+after "deploy", "deploy:prep_passenger"
 after "deploy:update", "deploy:cleanup" 
 
 # If you are using Passenger mod_rails uncomment this:
@@ -34,15 +34,18 @@ namespace :deploy do
   task :bundle_gems do
     run "cd #{release_path} && bundle install --path vendor/bundle --without=test development"
   end
-  task :create_symlink do 
+  # task :prep_passenger do 
+  #   run "rm -rf ~/public_html; ln -s #{release_path}/public ~/public_html"
+  #   run "ln -nfs #{shared_path}/public/.htaccess #{htaccess}"
+  #   run "touch #{release_path}/tmp/restart.txt"
+  #   run "cd #{release_path}; bundle exec rake assets:precompile"
+  # end
+  task :stop do ; end
+  task :restart, :roles => :app, :except => { :no_release => true } do
     run "rm -rf ~/public_html; ln -s #{release_path}/public ~/public_html"
     run "ln -nfs #{shared_path}/public/.htaccess #{htaccess}"
     run "touch #{release_path}/tmp/restart.txt"
     run "cd #{release_path}; bundle exec rake assets:precompile"
-  end
-  task :stop do ; end
-  task :restart, :roles => :app, :except => { :no_release => true } do
-    ;
   end
 end
 
