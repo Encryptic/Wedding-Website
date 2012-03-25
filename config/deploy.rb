@@ -23,10 +23,10 @@ set :keep_releases, 1
 
 after "deploy", "deploy:bundle_gems"
 after "deploy", "db:password"
-after "deploy", "db:symlink"
+after "deploy", "db:create_symlink"
 after "deploy", "db:migrate"
 after "deploy", "deploy:restart"
-after "deploy", "deploy:create_symlinks"
+after "deploy", "deploy:create_symlink"
 after "deploy:update", "deploy:cleanup" 
 
 # If you are using Passenger mod_rails uncomment this:
@@ -34,7 +34,7 @@ namespace :deploy do
   task :bundle_gems do
     run "cd #{release_path} && bundle install --path vendor/bundle --without=test development"
   end
-  task :create_symlinks do 
+  task :create_symlink do 
     run "rm -rf ~/public_html; ln -s #{release_path}/public ~/public_html"
     run "ln -nfs #{shared_path}/public/.htaccess #{htaccess}"
     run "touch #{release_path}/tmp/restart.txt"
@@ -51,7 +51,7 @@ end
 # Example From: https://gist.github.com/308763
 # http://github.com/thoughtbot/suspenders/blob/4d9c29a1dfe14a591ac461d5ea8e660f1a642d5b/config/deploy.rb#L40
 namespace :db do
-  task :symlink do
+  task :create_symlink do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
   end
   task :migrate do
