@@ -30,7 +30,7 @@ after "deploy:update", "deploy:cleanup"
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
   task :bundle_gems do
-    run "cd ~/weddingsite/current/ && bundle install --path vendor/bundle --disable-shared-gems --without=test development"
+    run "cd ~/weddingsite/current/ && bundle install --path vendor/bundle --without=test development"
   end
   task :create_symlinks do 
     run "ln -s ~/weddingsite/current/public ~/public_html; echo -e \"PassengerEnabled On\nPassengerAppRoot $HOME/weddingsite/current\n\" > ~/weddingsite/current/public/.htaccess"
