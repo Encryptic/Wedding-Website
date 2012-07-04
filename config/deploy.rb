@@ -1,12 +1,12 @@
 set :application, "thebergestonewedding.com"
-set :repository,  "git://github.com/Encryptic/Wedding-Website.git"
+set :repository,  "git@github.com:Encryptic/Wedding-Website.git"
 
 set :scm, :git
 # Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-role :web, "thebergestonewedding.com"                          # Your HTTP server, Apache/etc
-role :app, "thebergestonewedding.com"                          # This may be the same as your `Web` server
-role :db,  "thebergestonewedding.com", :primary => true # This is where Rails migrations will run
+role :web, "direct.thebergestonewedding.com"                          # Your HTTP server, Apache/etc
+role :app, "direct.thebergestonewedding.com"                          # This may be the same as your `Web` server
+role :db,  "direct.thebergestonewedding.com", :primary => true # This is where Rails migrations will run
 #role :db,  "your slave db-server here"
 
 set :user, 'wedding'
@@ -14,19 +14,19 @@ set :use_sudo, false
 set :deploy_to, "/home/wedding/weddingsite"
 set :htaccess, "#{release_path}/public/.htaccess"
 
-default_run_options[:pty] = true 
+default_run_options[:pty] = true
+ssh_options[:forward_agent] = true
 
 # if you're still using the script/reaper helper you will need
 # these http://github.com/rails/irs_process_scripts
 
-set :keep_releases, 1
+set :keep_releases, 4
 
-after "deploy", "deploy:bundle_gems"
-after "deploy", "db:password"
+before "deploy:restart", "deploy:bundle_gems"
+#after "deploy", "db:password"
 after "deploy", "db:create_symlink"
 after "deploy", "db:migrate"
 after "deploy", "deploy:restart"
-after "deploy", "deploy:prep_passenger"
 after "deploy:update", "deploy:cleanup" 
 
 # If you are using Passenger mod_rails uncomment this:
@@ -34,12 +34,6 @@ namespace :deploy do
   task :bundle_gems do
     run "cd #{release_path} && bundle install --path vendor/bundle --without=test development"
   end
-  # task :prep_passenger do 
-  #   run "rm -rf ~/public_html; ln -s #{release_path}/public ~/public_html"
-  #   run "ln -nfs #{shared_path}/public/.htaccess #{htaccess}"
-  #   run "touch #{release_path}/tmp/restart.txt"
-  #   run "cd #{release_path}; bundle exec rake assets:precompile"
-  # end
   task :stop do ; end
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "rm -rf ~/public_html; ln -s #{release_path}/public ~/public_html"
