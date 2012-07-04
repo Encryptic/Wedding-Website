@@ -15,7 +15,7 @@
     <td><%= page.slug %></td>
     <td><%= link_to 'Show', page %></td>
     <td><%= link_to 'Edit', edit_page_path(page) %></td>
-    <td><%= link_to 'Destroy', page, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= button_to "Delete", page, :method => :delete, :data => { :confirm => 'Are you sure you wish to delete this page?' } %></td>
   </tr>
 <% end %>
 </table>

@@ -22,10 +22,9 @@ ssh_options[:forward_agent] = true
 
 set :keep_releases, 4
 
-before "deploy:restart", "deploy:bundle_gems"
-#after "deploy", "db:password"
-after "deploy", "db:create_symlink"
-after "deploy", "db:migrate"
+before "db:migrate", "deploy:bundle_gems"
+before "db:migrate", "db:create_symlink"
+before "deploy:restart", "db:migrate"
 after "deploy", "deploy:restart"
 after "deploy:update", "deploy:cleanup" 
 
@@ -43,8 +42,6 @@ namespace :deploy do
   end
 end
 
-
-
 # Example From: https://gist.github.com/308763
 # http://github.com/thoughtbot/suspenders/blob/4d9c29a1dfe14a591ac461d5ea8e660f1a642d5b/config/deploy.rb#L40
 namespace :db do
@@ -54,6 +51,7 @@ namespace :db do
   task :migrate do
     run "cd #{release_path}; rake db:migrate --trace RAILS_ENV='production'"
   end
+  # call cap db:password the first time you deploy to a server.
   desc "Create database password in shared path" 
   task :password do
     set :db_password, Proc.new { Capistrano::CLI.password_prompt("Remote database password: ") }
