@@ -1,4 +1,14 @@
 class SessionsController < ApplicationController
+  
+  before_filter :not_auth_only, :only => [ :new, :create ]
+  
+  def not_auth_only
+    if current_user
+      redirect_to users_url
+    end
+  end
+  
+  
   def new
   end
 
@@ -8,8 +18,7 @@ class SessionsController < ApplicationController
       session[:user_id] = user.id
       redirect_to root_url, :notice => "Logged in!"
     else
-      flash.now.alert = "Invalid email or password"
-      render "new"
+      render "new", :notice => "Invalid Username/Password"
     end
   end
 

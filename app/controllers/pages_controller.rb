@@ -1,11 +1,5 @@
 class PagesController < ApplicationController
-  before_filter :auth, :only => [:edit, :new, :destroy, :index]
-  
-  def auth
-    unless current_user
-      redirect_to login_url
-    end
-  end
+  before_filter :auth_required  , :only => [:edit, :new, :destroy, :index]
   
   # GET /pages
   # GET /pages.json
