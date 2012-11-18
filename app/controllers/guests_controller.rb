@@ -1,4 +1,6 @@
 class GuestsController < ApplicationController
+  before_filter :auth_required  , :only => [:index, :show, :new, :edit, :create :update, :destroy]
+
   # GET /guests
   # GET /guests.json
   def index
