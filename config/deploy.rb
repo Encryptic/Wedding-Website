@@ -47,6 +47,7 @@ end
 namespace :db do
   task :create_symlink do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+    run "ln -nfs #{shared_path}/uploads/ #{release_path}/uploads/"
   end
   task :migrate do
     run "cd #{release_path}; rake db:migrate --trace RAILS_ENV='production'"
