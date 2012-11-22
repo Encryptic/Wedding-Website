@@ -23,6 +23,34 @@ class GuestsController < ApplicationController
     end
   end
 
+  def validate
+
+    @guest = Guest.find_by_code(params[:id].upcase)
+
+    respond_to do |format|
+      format.json { render :json => @guest != nil }
+    end
+  end
+
+  # GET /guests/1
+  # GET /guests/1.json
+  def show_rsvp
+    respond_to do |format|
+      format.html # new.html.erb
+    end
+  end
+
+  # GET /guests/1
+  # GET /guests/1.json
+  def rsvp
+    @guest = Guest.find_by_code(params[:id].upcase)
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render :json => @guest }
+    end
+  end
+
   # GET /guests/new
   # GET /guests/new.json
   def new

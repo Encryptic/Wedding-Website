@@ -5,6 +5,10 @@ ThebergestoneweddingCom::Application.routes.draw do
   get "login" => "sessions#new", :as => "login"
   get "signup" => "users#new", :as => "signup"
 
+  match "/rsvp" => "guests#show_rsvp"
+  match "/rsvp/:id" => "guests#rsvp"
+  match "/validate/:id" => "guests#validate"
+
   resources :pages
 
   resources :guests

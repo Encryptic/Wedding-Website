@@ -1,0 +1,43 @@
+<script type="text/javascript">
+
+    function BeginRSVP() {
+        var input = document.getElementById('rsvp_code');
+        window.location = '/rsvp/' + input.value;
+    }
+
+</script>
+
+We look forward to sharing our special day with you.<br/>
+<br/>
+<h2>Enter your RSVP Code to begin</h2>
+RSVP Code:
+<br />
+<input id="rsvp_code"/>  <img id="status" src="<%= image_path("minus_small.png") %>">
+<br/>
+
+<input id="submit" type=button onclick="BeginRSVP()" value='Begin' disabled=true>
+
+<script type="text/javascript">
+    var input = document.getElementById('rsvp_code');
+    var button = document.getElementById('submit');
+    var img = document.getElementById('status');
+
+    function updateState(data) {
+        button.disabled = !data;
+        img.src = data ? '<%= image_path("plus_small.png") %>' : '<%= image_path("minus_small.png") %>';
+    }
+
+    input.onchange = input.onkeyup = function () {
+        if (input.value.length > 0) {
+            $.ajax({
+                url:'/validate/' + input.value + '.json',
+                dataType:'json'
+            }).done(updateState);
+        }
+        else
+        {
+            updateState(false);
+        }
+    };
+</script>
+
