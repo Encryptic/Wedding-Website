@@ -16,7 +16,7 @@
 
 <% @guests.each do |guest| %>
   <tr>
-    <td><%= guest.name %></td>
+    <td><%= guest.first_name %> <%= guest.last_name %></td>
     <td><%= guest.code %></td>
     <td><%= guest.adult_guests %></td>
     <td><%= guest.child_guests %></td>

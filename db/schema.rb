@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120129191732) do
+ActiveRecord::Schema.define(:version => 20130101182500) do
 
   create_table "data_files", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(:version => 20120129191732) do
   end
 
   create_table "guests", :force => true do |t|
-    t.string   "name"
     t.string   "code"
     t.integer  "adult_guests"
     t.integer  "child_guests"
@@ -27,6 +26,10 @@ ActiveRecord::Schema.define(:version => 20120129191732) do
     t.text     "private_notes"
     t.datetime "created_at",    :null => false
     t.datetime "updated_at",    :null => false
+    t.boolean  "will_attend"
+    t.string   "last_name"
+    t.string   "first_name"
+    t.string   "email"
   end
 
   create_table "pages", :force => true do |t|

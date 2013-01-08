@@ -1,0 +1,14 @@
+development:
+  :address: smtp.mandrillapp.com
+  :port: 587
+  :authentication: plain
+  :user_name: chris@codeforyou.com
+  :password: <%= File.read(SMTP_PASSWORD).chomp if File.readable? SMTP_PASSWORD %>
+  :enable_starttls_auto: true
+production:
+  :address: smtp.mandrillapp.com
+  :port: 587
+  :authentication: plain
+  :user_name: chris@codeforyou.com
+  :password: <%= File.read(SMTP_PASSWORD).chomp if File.readable? SMTP_PASSWORD %>
+  :enable_starttls_auto: true

@@ -1,13 +1,18 @@
 ThebergestoneweddingCom::Application.routes.draw do
-  #get "sessions/new"
 
-  get "logout" => "sessions#destroy", :as => "logout"
   get "login" => "sessions#new", :as => "login"
+  get "logout" => "sessions#destroy", :as => "logout"
+
+  # Handles the Session Login
+  match "/sessions" => "sessions#create", :via => :post
+
   get "signup" => "users#new", :as => "signup"
 
-  match "/rsvp" => "guests#show_rsvp"
-  match "/rsvp/:id" => "guests#rsvp"
   match "/validate/:id" => "guests#validate"
+
+  match "/rsvp" => "rsvp#index"
+  match "/rsvp_confirm" => "rsvp#confirm", :via => :post
+  match "/rsvp/:id" => "rsvp#show"
 
   resources :pages
 
@@ -17,8 +22,7 @@ ThebergestoneweddingCom::Application.routes.draw do
   match '/upload' => 'upload#upload'
   
   resources :users
-  resources :sessions
-  
+  #resources :sessions
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

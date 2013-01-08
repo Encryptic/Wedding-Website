@@ -19,35 +19,15 @@ class GuestsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render :json => @guest }
+      #format.json { render :json => @guest }
     end
   end
 
   def validate
-
     @guest = Guest.find_by_code(params[:id].upcase)
 
     respond_to do |format|
       format.json { render :json => @guest != nil }
-    end
-  end
-
-  # GET /guests/1
-  # GET /guests/1.json
-  def show_rsvp
-    respond_to do |format|
-      format.html # new.html.erb
-    end
-  end
-
-  # GET /guests/1
-  # GET /guests/1.json
-  def rsvp
-    @guest = Guest.find_by_code(params[:id].upcase)
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render :json => @guest }
     end
   end
 
@@ -58,7 +38,7 @@ class GuestsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render :json => @guest }
+      #format.json { render :json => @guest }
     end
   end
 
@@ -71,6 +51,7 @@ class GuestsController < ApplicationController
   # POST /guests.json
   def create
     @guest = Guest.new(params[:guest])
+    @guest.code = @guest.code.upcase
 
     respond_to do |format|
       if @guest.save

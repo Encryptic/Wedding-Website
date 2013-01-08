@@ -2,12 +2,22 @@
 
 <p>
   <b>Name:</b>
-  <%= @guest.name %>
+  <%= @guest.first_name %> <%= @guest.last_name %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @guest.email %>
 </p>
 
 <p>
   <b>Code:</b>
   <%= @guest.code %>
+</p>
+
+<p>
+  <b>Will Attend:</b>
+  <%= @guest.will_attend %>
 </p>
 
 <p>

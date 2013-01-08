@@ -5,14 +5,18 @@
         window.location = '/rsvp/' + input.value;
     }
 
+    $(document).ready(function() {
+        $("input#rsvp_code").val('');
+    });
+
 </script>
 
-We look forward to sharing our special day with you.<br/>
+<h2>Please enter your RSVP Code</h2>
+Your RSVP code should have been included with your invitation.<br />
 <br/>
-<h2>Enter your RSVP Code to begin</h2>
 RSVP Code:
 <br />
-<input id="rsvp_code"/>  <img id="status" src="<%= image_path("minus_small.png") %>">
+<input id="rsvp_code"/>  <img id="status" src="<%= image_path("minus_small.png") %>"> <label id="status_text">Invalid RSVP Code</label>
 <br/>
 
 <input id="submit" type=button onclick="BeginRSVP()" value='Begin' disabled=true>
@@ -21,9 +25,11 @@ RSVP Code:
     var input = document.getElementById('rsvp_code');
     var button = document.getElementById('submit');
     var img = document.getElementById('status');
+    var status = document.getElementById('status_text');
 
     function updateState(data) {
         button.disabled = !data;
+        document.getElementById('status_text').innerHTML = data ? "RSVP Code Found" : "Invalid RSVP Code";
         img.src = data ? '<%= image_path("plus_small.png") %>' : '<%= image_path("minus_small.png") %>';
     }
 

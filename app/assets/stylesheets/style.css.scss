@@ -38,6 +38,11 @@ INPUT[type=hidden] {
 display: none 
 !important;
 }
+
+input[type="radio"] {
+  margin: 3px;
+}
+
 FIELDSET, A IMG {
 border: 0;
 }

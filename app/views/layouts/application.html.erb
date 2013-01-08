@@ -3,10 +3,12 @@
 <head>
     <title>Theberge Stone Wedding <%= yield(:title) %></title>
     <meta charset="utf-8">
-    
+    <%= yield :head %>
+
 	<%= stylesheet_link_tag "reset" %>
 	<%= stylesheet_link_tag "style" %>
 	<%= stylesheet_link_tag "grid" %>
+
 	<%= javascript_include_tag "cufon-yui" %>
 	<%= javascript_include_tag "english.cufonfonts" %>
 	<%= javascript_include_tag "application" %>
@@ -77,10 +79,9 @@
     </div>
     <section id="content">
         <div class="main">
-        <%if current_user %>
-          <%= link_to "Logout", :controller => "sessions", :action => "destroy" %>
-        <% end %>
-        
+          <%= link_to_if current_user, "Logout", {:controller => "sessions", :action => "destroy"} do
+          end
+          %>
             <div class="container_12">
                 <div class="wrapper">
                     <%= yield %>
@@ -94,7 +95,7 @@
             	<div class="wrapper">
                     <div class="grid_5">
                     	<span class="footer-text">
-                        	<span>Chris &amp; Heather &copy; 2012</span>
+                        	<span>Chris &amp; Heather &copy; 2013</span>
                             <span>Source code on <a href="https://github.com/Encryptic/Wedding-Website">Github</a></span>
                         </span>
                     </div>
