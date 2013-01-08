@@ -31,6 +31,7 @@ after "deploy:update", "deploy:cleanup"
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
   task :bundle_gems do
+    run "bundle config build.libv8 --with-system-v8"
     run "cd #{release_path} && bundle install --path vendor/bundle --without=test development"
   end
   task :stop do ; end
