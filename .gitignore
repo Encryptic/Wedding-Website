@@ -7,6 +7,7 @@
 #rails specific
 *.sqlite3
 config/database.yml
+config/email.yml
 log/*
 tmp/*
 
@@ -15,3 +16,4 @@ tmp/*
 *.DS_Store
 *.swp
 *.out
+
