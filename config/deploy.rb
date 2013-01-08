@@ -51,7 +51,7 @@ namespace :db do
     run "ln -nfs #{shared_path}/public/uploads #{release_path}/public/uploads"
   end
   task :migrate do
-    run "cd #{release_path}; rake db:migrate --trace RAILS_ENV='production'"
+    run "cd #{release_path}; bundle exec rake db:migrate --trace RAILS_ENV='production'"
   end
   # call cap db:password the first time you deploy to a server.
   desc "Create database password in shared path" 
