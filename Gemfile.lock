@@ -133,7 +133,7 @@ DEPENDENCIES
   friendly_id
   jquery-rails
   json
-  libv8 (~> 3.11.8)
+  libv8 (~> 3.11.8.11)
   mysql2
   rails (= 3.2.9)
   sass-rails (~> 3.2.3)
