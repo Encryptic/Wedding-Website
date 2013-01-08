@@ -22,10 +22,8 @@ group :assets do
   gem 'sass-rails', '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
 
-  # Required for therubyracer
-  # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'libv8', '~> 3.11.8.4'  # Update version number as needed
-  gem 'therubyracer', '~> 0.11.0', :platforms => :ruby, :require => 'v8'
+  gem "execjs", "1.4.0"
+  gem "therubyracer", "0.10.2"
 
   gem 'uglifier', '>= 1.0.3'
 end
@@ -44,7 +42,5 @@ gem 'capistrano'
 
 # To use debugger
 # gem 'ruby-debug'
-
-gem 'execjs'
 
 gem "friendly_id"
