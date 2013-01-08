@@ -24,8 +24,8 @@ group :assets do
 
   # Required for therubyracer
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  gem 'libv8', '~> 3.11.8.11'
-  gem "therubyracer", :require => 'v8'
+  gem 'libv8', '~> 3.11.8'
+  gem "therubyracer", '0.11.1'
 
   gem 'uglifier', '>= 1.0.3'
 end
