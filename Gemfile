@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '3.2.9'
+gem 'rails', '3.2.11'
 
 group :development, :test do
   gem 'sqlite3'
@@ -23,7 +23,14 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
 
   gem "execjs", "1.4.0"
-  gem "therubyracer", "0.10.2"
+
+  # Temporary workaround for libv8 issues on x86_64 linux
+  case (RUBY_PLATFORM)
+    when ('x86_64-linux')
+      gem "therubyracer", "0.10.2"
+    when ('i686-darwin12.2.0')
+      gem "therubyracer", "0.11.1"
+    end
 
   gem 'uglifier', '>= 1.0.3'
 end
