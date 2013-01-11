@@ -1,3 +1,5 @@
+require 'new_relic/recipes'
+
 set :application, "thebergestonewedding.com"
 set :repository,  "git@github.com:Encryptic/Wedding-Website.git"
 
@@ -26,7 +28,8 @@ before "db:migrate", "deploy:bundle_gems"
 before "db:migrate", "db:create_symlink"
 before "deploy:restart", "db:migrate"
 after "deploy", "deploy:restart"
-after "deploy:update", "deploy:cleanup" 
+after "deploy:update", "deploy:cleanup"
+after "deploy:update", "newrelic:notice_deployment"
 
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
