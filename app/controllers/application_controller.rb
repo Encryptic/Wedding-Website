@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   end
   
   def auth_required
-    unless current_user
+    unless current_user && User.all().count() > 0
       redirect_to login_url
     end
   end
