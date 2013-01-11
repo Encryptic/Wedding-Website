@@ -28,7 +28,7 @@
 <%= form_tag( { :controller => "rsvp", :action => "confirm" }) do %>
     <% if @errors %>
         <div id="error_explanation">
-          <h2><%= pluralize(@guest.errors.count, "error") %> prohibited this guest from being saved:</h2>
+          <h2><%= pluralize(@guest.errors.count, "error") %> caused your RSVP to not be saved properly:</h2>
 
           <ul>
             <% @errors.full_messages.each do |msg| %>
@@ -43,16 +43,16 @@
     </div>
     <div class="field">
       <h3>Will you be attending?</h3>
-      <%= radio_button_tag :attending, :yes %> <%= label_tag :attending_yes, "Yes! We'll be there with bells on." %>
-      <%= radio_button_tag :attending, :no %> <%= label_tag :attending_no, "Regretfully decline" %>
+      <%= radio_button_tag :attending, :yes %> <%= label_tag :attending_yes, "Yes, will attend" %>
+      <%= radio_button_tag :attending, :no %> <%= label_tag :attending_no, "No, we regretfully decline" %>
     </div>
-    <div id="guest_info" style="display: none;"> <!-- style="display: none;" -->
+    <div id="guest_info" style="display: none;">
       <div class="field">
         <h3>How many adult guests will be attending?</h3>
         <%= number_field_tag "adult_guests", @guest.adult_guests %>
       </div>
       <div class="field">
-        <h3>How many child guests will be attending?</h3>
+        <h3>How many child guests will be attending? (Ages 3-8 only, Three and under eat free!)</h3>
         <%= number_field_tag "child_guests", @guest.child_guests %>
       </div>
     </div>

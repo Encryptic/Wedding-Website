@@ -48,6 +48,7 @@ namespace :db do
   task :create_symlink do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
     run "ln -nfs #{shared_path}/config/email.yml #{release_path}/config/email.yml"
+    run "ln -nfs #{shared_path}/config/newrelic.yml #{release_path}/config/newrelic.yml"
     run "ln -nfs #{shared_path}/public/uploads #{release_path}/public/uploads"
   end
   task :migrate do
