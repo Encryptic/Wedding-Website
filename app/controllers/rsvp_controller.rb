@@ -11,6 +11,7 @@ class RsvpController < ApplicationController
 
     if @guest == nil
       redirect_to "/rsvp"
+      return
     end
 
     respond_to do |format|

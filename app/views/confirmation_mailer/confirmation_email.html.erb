@@ -1,3 +1,7 @@
+<% content_for :rsvp_code do %>
+<%= @guest.code -%>
+<% end %>
+
 <% if @guest.will_attend %>
 <h1 style="font-size: 31px; font-weight: bold; color: #252a32; margin: 0 0 20px 0;">Hey <%= @guest.last_name %> Family!</h1>
 <p style="font-size: 16px; color: #252a32; margin:0; line-height: 21px;">We have confirmed you for <%= english_name(@guest.adult_guests) %> adult <%= pluralize_without_count(@guest.adult_guests, "guest") -%>
