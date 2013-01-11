@@ -21,6 +21,7 @@ class RsvpController < ApplicationController
   def confirm
     @guest = Guest.find_by_code(params[:guest_code])
     @guest.will_attend = params[:attending] == "yes"
+    @guest.rsvp_date = Time.now
 
     if @guest.will_attend
       @guest.adult_guests = params[:adult_guests]

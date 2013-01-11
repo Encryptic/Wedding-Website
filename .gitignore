@@ -14,12 +14,11 @@ tmp/*
 # Ignore protected files
 config/smtp_password
 config/password_file
+config/newrelic.yml
 
 ## generic files to ignore
 *~
 *.DS_Store
 *.swp
 *.out
-
-
 

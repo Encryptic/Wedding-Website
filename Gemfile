@@ -41,6 +41,8 @@ gem 'jquery-rails'
 # gem 'bcrypt-ruby', '~> 3.0.0'
 gem "bcrypt-ruby", :require => "bcrypt"
 
+gem 'newrelic_rpm'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
