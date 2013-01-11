@@ -60,7 +60,7 @@
     <%= check_box_tag :send_email, :yes, false %> <%= label_tag :send_email, "Send me a confirmation email" %>
     <div id="email_confirm" style="display: none;">
       <h3>Email Address:</h3>
-      <%= email_field_tag :email %>
+      <%= email_field_tag :email, @guest.email %>
     </div>
     <br />
     <div class="actions">
