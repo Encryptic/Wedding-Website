@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130101182500) do
+ActiveRecord::Schema.define(:version => 20130113191921) do
 
   create_table "data_files", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -24,12 +24,30 @@ ActiveRecord::Schema.define(:version => 20130101182500) do
     t.date     "rsvp_date"
     t.text     "notes"
     t.text     "private_notes"
-    t.datetime "created_at",    :null => false
-    t.datetime "updated_at",    :null => false
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.boolean  "will_attend"
     t.string   "last_name"
     t.string   "first_name"
     t.string   "email"
+    t.integer  "toddler_guests"
+  end
+
+  create_table "madlibs", :force => true do |t|
+    t.string   "field1"
+    t.string   "field2"
+    t.string   "field3"
+    t.string   "field4"
+    t.string   "field5"
+    t.string   "field6"
+    t.string   "field7"
+    t.string   "field8"
+    t.string   "field9"
+    t.string   "field10"
+    t.string   "field11"
+    t.integer  "guest_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "pages", :force => true do |t|

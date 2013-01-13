@@ -1,57 +1,62 @@
 <%= form_for(@guest) do |f| %>
-  <% if @guest.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@guest.errors.count, "error") %> prohibited this guest from being saved:</h2>
+    <% if @guest.errors.any? %>
+        <div id="error_explanation">
+          <h3><%= pluralize(@guest.errors.count, "error") %> prohibited this guest from being saved:</h3>
 
-      <ul>
-      <% @guest.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+          <ul>
+            <% @guest.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+            <% end %>
+          </ul>
+        </div>
+        <br />
+    <% end %>
+
+    <div class="field">
+      <%= f.label :first_name %><br />
+      <%= f.text_field :first_name %>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :first_name %><br />
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br />
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.text_field :email %>
-  </div>
-  <div class="field">
-    <%= f.label :code %><br />
-    <%= f.text_field :code %>
-  </div>
-  <div class="field">
-    <%= f.label :will_attend %>
-    <%= f.check_box :will_attend %>
-  </div>
-  <div class="field">
-    <%= f.label :adult_guests %><br />
-    <%= f.number_field :adult_guests %>
-  </div>
-  <div class="field">
-    <%= f.label :child_guests %><br />
-    <%= f.number_field :child_guests %>
-  </div>
-  <div class="field">
-    <%= f.label :rsvp_date %><br />
-    <%= f.date_select :rsvp_date %>
-  </div>
-  <div class="field">
-    <%= f.label :notes %><br />
-    <%= f.text_area :notes %>
-  </div>
-  <div class="field">
-    <%= f.label :private_notes %><br />
-    <%= f.text_area :private_notes %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+    <div class="field">
+      <%= f.label :last_name %><br />
+      <%= f.text_field :last_name %>
+    </div>
+    <div class="field">
+      <%= f.label :email %><br />
+      <%= f.text_field :email %>
+    </div>
+    <div class="field">
+      <%= f.label :code %><br />
+      <%= f.text_field :code %>
+    </div>
+    <div class="field">
+      <%= f.label :will_attend %>
+      <%= f.check_box :will_attend %>
+    </div>
+    <div class="field">
+      <%= f.label :adult_guests %><br />
+      <%= f.number_field :adult_guests %>
+    </div>
+    <div class="field">
+      <%= f.label :child_guests %><br />
+      <%= f.number_field :child_guests %>
+    </div>
+    <div class="field">
+      <%= f.label :toddler_guests %><br />
+      <%= f.number_field :toddler_guests %>
+    </div>
+    <div class="field">
+      <%= f.label :rsvp_date %><br />
+      <%= f.date_select :rsvp_date %>
+    </div>
+    <div class="field">
+      <%= f.label :notes %><br />
+      <%= f.text_area :notes %>
+    </div>
+    <div class="field">
+      <%= f.label :private_notes %><br />
+      <%= f.text_area :private_notes %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
 <% end %>

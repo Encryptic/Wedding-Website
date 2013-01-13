@@ -20,7 +20,9 @@ ThebergestoneweddingCom::Application.routes.draw do
   
   resources :upload
   match '/upload' => 'upload#upload'
-  
+
+  resources :madlibs
+
   resources :users
   #resources :sessions
 

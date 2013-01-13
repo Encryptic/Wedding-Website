@@ -5,3 +5,23 @@
 form input#email {
   width: 250px;
 }
+
+input:placeholder, textarea:placeholder {
+  color: #999999;
+}
+
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  color: #999999;
+}
+
+input {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+input[type="text"] {
+  border-right: #ffffff 0 none;
+  border-top: #ffffff 0px none;
+  border-left: #ffffff 0px none;
+  border-bottom: #a9a9a9 1px solid;
+}

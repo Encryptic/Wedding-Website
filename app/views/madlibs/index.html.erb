@@ -1,0 +1,18 @@
+<h2 class="indent-bot2">Guest List</h2>
+
+<table style="padding-left: 10px;padding-right: 10px;">
+  <tr>
+    <th style="padding-left: 10px;padding-right: 10px;">Owner</th>
+    <th style="padding-left: 10px;padding-right: 10px;">Date</th>
+    <th style="padding-left: 10px;padding-right: 10px;">View</th>
+  </tr>
+
+  <% @madlibs.each do |madlib| %>
+      <tr>
+        <td style="padding-left: 10px;padding-right: 10px;"><%= madlib.guest.first_name %> <%= madlib.guest.last_name %></td>
+        <td style="padding-left: 10px;padding-right: 10px;"><%= madlib.updated_at %></td>
+        <td style="padding-left: 10px;padding-right: 10px;"><%= link_to "Show", madlib %></td>
+      </tr>
+  <% end %>
+</table>
+

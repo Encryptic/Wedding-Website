@@ -4,13 +4,25 @@
 
 <script type="text/javascript">
 
-    $(document).ready(function() {
-        $("input#attending_yes").bind('click', function(){ radioPressed(true) });
-        $("input#attending_no").bind('click', function(){ radioPressed(false) });
-        $("input#send_email").bind('click', function() { $('div#email_confirm').toggle('fast') });
+    $(document).ready(function () {
+        $("input#attending_yes").bind('click', function () {
+            radioPressed(true)
+        });
+        $("input#attending_no").bind('click', function () {
+            radioPressed(false)
+        });
+        $("input#send_email").bind('click', function () {
+            $('div#email_confirm').toggle('fast')
+        });
 
-        if ($("input#attending_yes").is(":checked")) { $("div#guest_info").show() }
-        if ($("input#send_email").is(":checked")) { $('div#email_confirm').show() }
+        if ($("input#attending_yes").is(":checked")) {
+            $("div#guest_info").show()
+        }
+        if ($("input#send_email").is(":checked")) {
+            $('div#email_confirm').show()
+        }
+
+        $('input[placeholder], textarea[placeholder]').placeholder();
     });
 
     function radioPressed(state) {
@@ -25,44 +37,73 @@
 
 <p id="notice"><%= notice %></p>
 
-<%= form_tag( { :controller => "rsvp", :action => "confirm" }) do %>
-    <% if @errors %>
-        <div id="error_explanation">
-          <h2><%= pluralize(@guest.errors.count, "error") %> caused your RSVP to not be saved properly:</h2>
-
-          <ul>
-            <% @errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
-          </ul>
-        </div>
-    <% end %>
+<%= form_tag({:controller => "rsvp", :action => "confirm"}) do %>
     <%= hidden_field_tag "guest_code", @guest.code %>
     <div class="field">
       <h2>Hey, <%= @guest.last_name %> Family!</h2>
+
+      <% if @guest.errors.any? %>
+          <div id="error_explanation">
+            <h3><%= english_name(@guest.errors.count).capitalize %> <%= pluralize_without_count(@guest.errors.count, "error") %> found in your RSVP:</h3>
+
+            <ul>
+              <% @guest.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+          <br />
+      <% else %>
+      Please fill in the fields below for our fun RSVP MadLib<br/><br/>
+      <% end %>
     </div>
-    <div class="field">
-      <h3>Will you be attending?</h3>
-      <%= radio_button_tag :attending, :yes %> <%= label_tag :attending_yes, "Yes, will attend" %>
-      <%= radio_button_tag :attending, :no %> <%= label_tag :attending_no, "No, we regretfully decline" %>
-    </div>
+    <h3>RSVP MadLib</h3>
+    On April 14th when Heather and Chris <%= text_field_tag :field1, @last_madlib.field1, :placeholder => "(Verb)", :style => 'margin-right:6px;margin-left:6px;' %> down the isle,
+    <br/>
+    <%= text_field_tag :field2, @last_madlib.field2, :placeholder => "(Your Names)", :style => 'margin-right:6px;' %>
+    <%= select_tag :field3, options_for_select([["will", "will"], ["won't", "won't"]], :style => 'margin-right:6px;margin-left:6px;') %> be there to
+    <%= text_field_tag :field4, @last_madlib.field4, :placeholder => "(Verb)", :style => 'margin-right:6px;margin-left:6px;' %> them.<br/>
+    <br/>
+    When we <%= text_field_tag :field5, @last_madlib.field5, :placeholder => "(Past Tense Verb)", :style => 'margin-right:6px;margin-left:6px;' %>
+    the invitation, we exclaimed, <%= text_field_tag :field6, @last_madlib.field6, :placeholder => "(Exclamation)", :style => 'margin-left:6px;' %>!!?!?!?!
+    <br/>
+    We are so
+    <%= text_field_tag :field7, @last_madlib.field8, :placeholder => "(Adjective)", :style => 'margin-right:6px;margin-left:6px;' %> for Heather and Chris!
+    <br/><br/>
+    They are our most
+    <%= text_field_tag :field8, @last_madlib.field8, :placeholder => "(Adjective)", :style => 'margin-right:6px;margin-left:6px;' %>
+    <%= text_field_tag :field9, @last_madlib.field9, :placeholder => "(Plural Noun)" %> and we wish<br/>
+    them <%= text_field_tag :field10, @last_madlib.field10, :placeholder => "(Number)", :style => 'margin-right:6px;' %>
+    years of <%= text_field_tag :field11, @last_madlib.field11, :placeholder => "(Noun)", :style => 'margin-left:6px;' %>.
+    <br/>
+    <h3>Conclusion:</h3>
+    <p>
+      <%= radio_button_tag :attending, :yes %> <%= label_tag :attending_yes, "Will Attend with bells on" %>
     <div id="guest_info" style="display: none;">
       <div class="field">
-        <h3>How many adult guests will be attending?</h3>
+        <h3>How many adult guests will be attending (Age 9 and up)?</h3>
         <%= number_field_tag "adult_guests", @guest.adult_guests %>
       </div>
       <div class="field">
-        <h3>How many child guests will be attending? (Ages 3-8 only, Three and under eat free!)</h3>
+        <h3>How many child guests will be attending (Age 3-8)?</h3>
         <%= number_field_tag "child_guests", @guest.child_guests %>
       </div>
+      <div class="field">
+        <h3>How many child guests will be attending (Ages 2 and under)?</h3>
+        <%= number_field_tag "toddler_guests", @guest.toddler_guests %>
+      </div>
     </div>
+    <%= radio_button_tag :attending, :no %> <%= label_tag :attending_no, "Will not attend, have bell phobia" %>
+    <br/>
+    </p>
+
     <h3>Would you like a confirmation email?</h3>
     <%= check_box_tag :send_email, :yes, false %> <%= label_tag :send_email, "Send me a confirmation email" %>
     <div id="email_confirm" style="display: none;">
       <h3>Email Address:</h3>
       <%= email_field_tag :email, @guest.email %>
     </div>
-    <br />
+    <br/>
     <div class="actions">
       <%= submit_tag "Submit" %>
     </div>

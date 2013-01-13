@@ -1,31 +1,31 @@
 <h2 class="indent-bot2">Guest List</h2>
 
-<table>
+<table style="padding-left: 10px;padding-right: 10px;">
   <tr>
-    <th>Name</th>
-    <th>Code</th>
-    <th>Adult guests</th>
-    <th>Child guests</th>
-    <th>Rsvp date</th>
-    <th>Notes</th>
-    <th>Private notes</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th style="padding-left: 10px;padding-right: 10px;">Name</th>
+    <th style="padding-left: 10px;padding-right: 10px;">Attending</th>
+    <th style="padding-left: 10px;padding-right: 10px;">Code</th>
+    <th style="padding-left: 10px;padding-right: 10px;">Adult guests</th>
+    <th style="padding-left: 10px;padding-right: 10px;">Child guests</th>
+    <th style="padding-left: 10px;padding-right: 10px;">Toddler guests</th>
+    <th style="padding-left: 10px;padding-right: 10px;">Rsvp date</th>
+    <th style="padding-left: 10px;padding-right: 10px;"></th>
+    <th style="padding-left: 10px;padding-right: 10px;"></th>
+    <th style="padding-left: 10px;padding-right: 10px;"></th>
   </tr>
 
 <% @guests.each do |guest| %>
   <tr>
-    <td><%= guest.first_name %> <%= guest.last_name %></td>
-    <td><%= guest.code %></td>
-    <td><%= guest.adult_guests %></td>
-    <td><%= guest.child_guests %></td>
-    <td><%= guest.rsvp_date %></td>
-    <td><%= guest.notes %></td>
-    <td><%= guest.private_notes %></td>
-    <td><%= link_to 'Show', guest %></td>
-    <td><%= link_to 'Edit', edit_guest_path(guest) %></td>
-    <td><%= link_to 'Destroy', guest, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td style="padding-left: 10px;padding-right: 10px;"><%= guest.first_name %> <%= guest.last_name %></td>
+    <td style="padding-left: 10px;padding-right: 10px;"><%= guest.will_attend ? "Yes" : "No" %></td>
+    <td style="padding-left: 10px;padding-right: 10px;"><%= guest.code %></td>
+    <td style="padding-left: 10px;padding-right: 10px;"><%= guest.adult_guests %></td>
+    <td style="padding-left: 10px;padding-right: 10px;"><%= guest.child_guests %></td>
+    <td style="padding-left: 10px;padding-right: 10px;"><%= guest.toddler_guests %></td>
+    <td style="padding-left: 10px;padding-right: 10px;"><%= guest.rsvp_date %></td>
+    <td style="padding-left: 10px;padding-right: 10px;"><%= link_to 'Show', guest %></td>
+    <td style="padding-left: 10px;padding-right: 10px;"><%= link_to 'Edit', edit_guest_path(guest) %></td>
+    <td style="padding-left: 10px;padding-right: 10px;"><%= link_to 'Destroy', guest, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>

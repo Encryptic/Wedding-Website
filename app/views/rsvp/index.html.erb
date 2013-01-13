@@ -5,8 +5,17 @@
         window.location = '/rsvp/' + input.value;
     }
 
+    function checkSubmit(e)
+    {
+        if(e && e.keyCode == 13)
+        {
+            BeginRSVP();
+        }
+    }
+
     $(document).ready(function() {
         $("input#rsvp_code").val('');
+        $("input#rsvp_code").keypress(checkSubmit);
     });
 
 </script>
@@ -16,7 +25,7 @@ Your RSVP code should have been included with your invitation.<br />
 <br/>
 RSVP Code:
 <br />
-<input id="rsvp_code"/>  <img id="status" src="<%= image_path("minus_small.png") %>"> <label id="status_text">Invalid RSVP Code</label>
+<input id="rsvp_code" placeholder="Input RSVP Code" />  <img id="status" src="<%= image_path("minus_small.png") %>"> <label id="status_text">Invalid RSVP Code</label>
 <br/>
 
 <input id="submit" type=button onclick="BeginRSVP()" value='Begin' disabled=true>
