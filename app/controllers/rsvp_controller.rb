@@ -6,13 +6,12 @@ class RsvpController < ApplicationController
     @guest = Guest.find_by_code(params[:id].upcase)
     @last_madlib = @guest.madlibs.last
 
-    if @last_madlib == nil
-      @last_madlib = Madlib.new
-    end
-
     if @guest == nil
       redirect_to "/rsvp"
       return
+    end
+    if @last_madlib == nil
+      @last_madlib = Madlib.new
     end
 
     respond_to do |format|
@@ -22,19 +21,19 @@ class RsvpController < ApplicationController
 
   def confirm
     @guest = Guest.find_by_code(params[:guest_code])
-    @madlib = @guest.madlibs.new
+    @last_madlib = @guest.madlibs.new
 
-    @madlib.field1 = params[:field1]
-    @madlib.field2 = params[:field2]
-    @madlib.field3 = params[:field3]
-    @madlib.field4 = params[:field4]
-    @madlib.field5 = params[:field5]
-    @madlib.field6 = params[:field6]
-    @madlib.field7 = params[:field7]
-    @madlib.field8 = params[:field8]
-    @madlib.field9 = params[:field9]
-    @madlib.field10 = params[:field10]
-    @madlib.field11 = params[:field11]
+    @last_madlib.field1 = params[:field1]
+    @last_madlib.field2 = params[:field2]
+    @last_madlib.field3 = params[:field3]
+    @last_madlib.field4 = params[:field4]
+    @last_madlib.field5 = params[:field5]
+    @last_madlib.field6 = params[:field6]
+    @last_madlib.field7 = params[:field7]
+    @last_madlib.field8 = params[:field8]
+    @last_madlib.field9 = params[:field9]
+    @last_madlib.field10 = params[:field10]
+    @last_madlib.field11 = params[:field11]
 
     @guest.will_attend = params[:attending] == "yes"
     @guest.rsvp_date = Time.now
@@ -56,12 +55,12 @@ class RsvpController < ApplicationController
       @guest.email = ''
     end
 
-    respond_to do |format|
-      if @guest.save() && @madlib.save()
+    if @guest.save() && @last_madlib.save()
+      respond_to do |format|
         format.html
-      else
-        format.html { render :action => "show" }
       end
+    else
+      render :action => "show", :locals => { :last_madlib => @madlib }
     end
   end
 end
