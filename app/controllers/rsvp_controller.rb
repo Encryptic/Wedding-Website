@@ -13,7 +13,7 @@ class RsvpController < ApplicationController
     # Update the Madlib once we've confirmed we have a valid guest.
     @last_madlib = @guest.madlibs.last
     if @last_madlib == nil
-      @last_madlib = Madlib.new
+      @last_madlib = @guest.madlibs.new
     end
 
     respond_to do |format|
@@ -55,9 +55,9 @@ class RsvpController < ApplicationController
     else
       @guest.email = nil
     end
-    ConfirmationMailer.confirmation_email(@guest).deliver
 
     if @guest.save() && @last_madlib.save()
+      ConfirmationMailer.confirmation_email(@guest).deliver
       respond_to do |format|
         format.html
       end
