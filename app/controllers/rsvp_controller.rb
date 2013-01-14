@@ -4,12 +4,14 @@ class RsvpController < ApplicationController
 
   def show
     @guest = Guest.find_by_code(params[:id].upcase)
-    @last_madlib = @guest.madlibs.last
 
     if @guest == nil
       redirect_to "/rsvp"
       return
     end
+    
+    # Update the Madlib once we've confirmed we have a valid guest.
+    @last_madlib = @guest.madlibs.last
     if @last_madlib == nil
       @last_madlib = Madlib.new
     end

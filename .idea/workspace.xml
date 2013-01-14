@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8feb448b-5800-4b38-90c9-a60efe9e1809" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/rsvp_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/rsvp_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/mailers/confirmation_mailer.rb" afterPath="$PROJECT_DIR$/app/mailers/confirmation_mailer.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/confirmation_mailer/confirmation_email.html.erb" afterPath="$PROJECT_DIR$/app/views/confirmation_mailer/confirmation_email.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/rsvp/confirm.html.erb" afterPath="$PROJECT_DIR$/app/views/rsvp/confirm.html.erb" />
     </list>
     <ignored path="thebergestonewedding.com.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -29,10 +25,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="rsvp_controller.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="rsvp_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/rsvp_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="35" selection-start="1399" selection-end="1399" vertical-scroll-proportion="0.0">
+            <state line="11" column="4" selection-start="200" selection-end="200" vertical-scroll-proportion="0.41121495">
               <folding />
             </state>
           </provider>
@@ -47,10 +43,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="confirmation_email.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="confirmation_email.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/confirmation_mailer/confirmation_email.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="0" selection-start="427" selection-end="582" vertical-scroll-proportion="0.31761786">
+            <state line="11" column="11" selection-start="582" selection-end="582" vertical-scroll-proportion="-7.04">
               <folding>
                 <element signature="e#219#288#0" expanded="true" />
                 <element signature="e#928#997#0" expanded="true" />
@@ -162,10 +158,10 @@
         <option value="$PROJECT_DIR$/app/controllers/madlibs_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/madlibs/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/rsvp/show.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/rsvp_controller.rb" />
         <option value="$PROJECT_DIR$/app/mailers/confirmation_mailer.rb" />
         <option value="$PROJECT_DIR$/app/views/rsvp/confirm.html.erb" />
         <option value="$PROJECT_DIR$/app/views/confirmation_mailer/confirmation_email.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/rsvp_controller.rb" />
       </list>
     </option>
   </component>
@@ -1136,13 +1132,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/madlibs_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="30" selection-start="78" selection-end="78" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/users/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
@@ -1172,23 +1161,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/rsvp_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="35" selection-start="1399" selection-end="1399" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/rsvp/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="91" column="26" selection-start="3984" selection-end="3989" vertical-scroll-proportion="-11.32">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/mailers/confirmation_mailer.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="4" selection-start="385" selection-end="385" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -1211,12 +1186,33 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/confirmation_mailer/confirmation_email.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="427" selection-end="582" vertical-scroll-proportion="0.31761786">
+        <state line="11" column="11" selection-start="582" selection-end="582" vertical-scroll-proportion="-7.04">
           <folding>
             <element signature="e#219#288#0" expanded="true" />
             <element signature="e#928#997#0" expanded="true" />
             <element signature="e#1012#1081#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/mailers/confirmation_mailer.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="4" selection-start="385" selection-end="385" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/madlibs_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="30" selection-start="78" selection-end="78" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/rsvp_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="4" selection-start="200" selection-end="200" vertical-scroll-proportion="0.41121495">
+          <folding />
         </state>
       </provider>
     </entry>
