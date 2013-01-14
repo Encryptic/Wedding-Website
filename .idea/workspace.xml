@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8feb448b-5800-4b38-90c9-a60efe9e1809" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/madlibs_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/madlibs_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/rsvp_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/rsvp_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/guest.rb" afterPath="$PROJECT_DIR$/app/models/guest.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/madlibs/index.html.erb" afterPath="$PROJECT_DIR$/app/views/madlibs/index.html.erb" />
     </list>
     <ignored path="thebergestonewedding.com.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,19 +28,28 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="rsvp_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="rsvp_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/rsvp_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="4" selection-start="200" selection-end="200" vertical-scroll-proportion="0.41121495">
+            <state line="11" column="0" selection-start="196" selection-end="196" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="email.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/email.yml">
+      <file leaf-file-name="guests_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/guests_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="guest.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/guest.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="43" selection-start="633" selection-end="633" vertical-scroll-proportion="0.30843374">
               <folding />
             </state>
           </provider>
@@ -65,22 +77,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="show.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/rsvp/show.html.erb">
+      <file leaf-file-name="madlibs_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/madlibs_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="26" selection-start="3984" selection-end="3989" vertical-scroll-proportion="-11.32">
+            <state line="12" column="26" selection-start="233" selection-end="233" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="confirm.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/rsvp/confirm.html.erb">
+      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/rsvp/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="434" selection-end="434" vertical-scroll-proportion="-4.48">
-              <folding>
-                <element signature="e#84#153#0" expanded="true" />
-              </folding>
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="25.36">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/pages/index.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="135" selection-start="330" selection-end="461" vertical-scroll-proportion="-10.88">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -88,42 +107,21 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/madlibs/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="17" column="0" selection-start="701" selection-end="701" vertical-scroll-proportion="-10.88">
+            <state line="15" column="61" selection-start="791" selection-end="791" vertical-scroll-proportion="-4.7058825">
               <folding>
                 <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#th#0;n#tr#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#1;n#tr#0;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#th#2;n#tr#0;n#table#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#1;n#tr#1;n#table#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#2;n#tr#1;n#table#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#tr#1;n#table#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/guests/index.html.erb">
+      <file leaf-file-name="pages_controller.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/pages_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/users/index.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="madlibs_controller.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/madlibs_controller.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="30" selection-start="78" selection-end="78" vertical-scroll-proportion="0.0">
+            <state line="77" column="0" selection-start="1769" selection-end="1997" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -151,17 +149,17 @@
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/app/models/madlib.rb" />
-        <option value="$PROJECT_DIR$/app/models/guest.rb" />
         <option value="$PROJECT_DIR$/db/schema.rb" />
         <option value="$PROJECT_DIR$/db/migrate/20130113191921_create_madlibs.rb" />
-        <option value="$PROJECT_DIR$/app/views/madlibs/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/controllers/madlibs_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/madlibs/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/rsvp/show.html.erb" />
         <option value="$PROJECT_DIR$/app/mailers/confirmation_mailer.rb" />
         <option value="$PROJECT_DIR$/app/views/rsvp/confirm.html.erb" />
         <option value="$PROJECT_DIR$/app/views/confirmation_mailer/confirmation_email.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/rsvp_controller.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/madlibs_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/madlibs/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/models/guest.rb" />
       </list>
     </option>
   </component>
@@ -439,6 +437,10 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="pages" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1090,41 +1092,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/db/migrate/20130113191921_create_madlibs.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="23" selection-start="372" selection-end="372" vertical-scroll-proportion="0.6530612">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20120123004309_create_guests.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20130113163735_add_toddler_guests_to_guests.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="50" selection-start="313" selection-end="313" vertical-scroll-proportion="0.53061223">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/guests_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/madlibs/show.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="16" column="28" selection-start="472" selection-end="472" vertical-scroll-proportion="0.6975477">
@@ -1136,21 +1103,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/madlibs/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="0" selection-start="701" selection-end="701" vertical-scroll-proportion="-10.88">
-          <folding>
-            <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#0;n#tr#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#1;n#tr#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#th#2;n#tr#0;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#1;n#tr#1;n#table#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#2;n#tr#1;n#table#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1202,16 +1154,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/pages_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="77" column="0" selection-start="1769" selection-end="1997" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/madlibs_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="30" selection-start="78" selection-end="78" vertical-scroll-proportion="0.0">
+        <state line="12" column="26" selection-start="233" selection-end="233" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/rsvp/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="25.36">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/pages/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="135" selection-start="330" selection-end="461" vertical-scroll-proportion="-10.88">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/madlibs/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="61" selection-start="791" selection-end="791" vertical-scroll-proportion="-4.7058825">
+          <folding>
+            <element signature="n#style#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#0;n#tr#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#0;n#tr#1;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#1;n#table#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/rsvp_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="4" selection-start="200" selection-end="200" vertical-scroll-proportion="0.41121495">
+        <state line="11" column="0" selection-start="196" selection-end="196" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/guests_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/guest.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="43" selection-start="633" selection-end="633" vertical-scroll-proportion="0.30843374">
           <folding />
         </state>
       </provider>

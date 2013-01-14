@@ -9,7 +9,7 @@ class RsvpController < ApplicationController
       redirect_to "/rsvp"
       return
     end
-    
+
     # Update the Madlib once we've confirmed we have a valid guest.
     @last_madlib = @guest.madlibs.last
     if @last_madlib == nil

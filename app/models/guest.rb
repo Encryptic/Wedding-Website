@@ -6,7 +6,7 @@ class Guest < ActiveRecord::Base
   validates :child_guests, :numericality => { :only_integer => true, :greater_than_or_equal_to => 0, :less_than_or_equal_to  => 5 }, :if => "is_attending?"
   validates :toddler_guests, :numericality => { :only_integer => true, :greater_than_or_equal_to => 0, :less_than_or_equal_to  => 5 }, :if => "is_attending?"
 
-  has_many :madlibs
+  has_many :madlibs, :dependent => :destroy
 
   def is_attending?
     return will_attend

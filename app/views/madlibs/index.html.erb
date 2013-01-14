@@ -5,6 +5,7 @@
     <th style="padding-left: 10px;padding-right: 10px;">Owner</th>
     <th style="padding-left: 10px;padding-right: 10px;">Date</th>
     <th style="padding-left: 10px;padding-right: 10px;">View</th>
+    <th style="padding-left: 10px;padding-right: 10px;"></th>
   </tr>
 
   <% @madlibs.each do |madlib| %>
@@ -12,6 +13,7 @@
         <td style="padding-left: 10px;padding-right: 10px;"><%= madlib.guest.first_name %> <%= madlib.guest.last_name %></td>
         <td style="padding-left: 10px;padding-right: 10px;"><%= madlib.updated_at %></td>
         <td style="padding-left: 10px;padding-right: 10px;"><%= link_to "Show", madlib %></td>
+        <td style="padding-left: 10px;padding-right: 10px;"><%= button_to "Delete", madlib, :method => :delete, :data => { :confirm => 'Are you sure you wish to delete this madlib?' } %></td>
       </tr>
   <% end %>
 </table>
