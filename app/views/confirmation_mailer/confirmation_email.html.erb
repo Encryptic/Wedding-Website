@@ -4,9 +4,17 @@
 
 <% if @guest.will_attend %>
 <h1 style="font-size: 31px; font-weight: bold; color: #252a32; margin: 0 0 20px 0;">Hey <%= @guest.last_name %> Family!</h1>
-<p style="font-size: 16px; color: #252a32; margin:0; line-height: 21px;">We have confirmed you for <%= english_name(@guest.adult_guests) %> adult <%= pluralize_without_count(@guest.adult_guests, "guest") -%>
-<% if @guest.child_guests >= 1 %>
- and <%= english_name(@guest.child_guests) %> child <%= pluralize_without_count(@guest.child_guests, "guest") -%>
+<p style="font-size: 16px; color: #252a32; margin:0; line-height: 21px;">
+  We have confirmed you for <%= english_name(@guest.adult_guests) %> adult <%= pluralize_without_count(@guest.adult_guests, "guest") -%>
+<%- if (@guest.child_guests >= 1 && @guest.toddler_guests >= 1) -%>,
+<%- elsif (@guest.child_guests >= 1 || @guest.toddler_guests >= 1) -%>
+and
+<%- end -%>
+  <% if @guest.child_guests >= 1 %>
+      <%= english_name(@guest.child_guests) %> child <%= pluralize_without_count(@guest.child_guests, "guest") -%>
+  <% end %>
+  <% if @guest.toddler_guests >= 1 %>
+      and <%= english_name(@guest.toddler_guests) %> toddler <%= pluralize_without_count(@guest.toddler_guests, "guest") -%>
 <% end %>.
 </p>
 <p style="font-size: 16px; color: #252a32; margin:0; line-height: 21px;">&nbsp;</p>

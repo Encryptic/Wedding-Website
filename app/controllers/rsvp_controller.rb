@@ -50,10 +50,10 @@ class RsvpController < ApplicationController
 
     if params[:send_email] == "yes"
       @guest.email = params[:email]
-      ConfirmationMailer.confirmation_email(@guest).deliver
     else
-      @guest.email = ''
+      @guest.email = nil
     end
+    ConfirmationMailer.confirmation_email(@guest).deliver
 
     if @guest.save() && @last_madlib.save()
       respond_to do |format|
