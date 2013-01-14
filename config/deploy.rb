@@ -27,7 +27,7 @@ set :keep_releases, 4
 before "db:migrate", "deploy:bundle_gems"
 before "db:migrate", "db:create_symlink"
 before "deploy:restart", "db:migrate"
-after "deploy", "deploy:restart"
+after "deploy:update", "deploy:restart"
 after "deploy:update", "deploy:cleanup"
 after "deploy:update", "newrelic:notice_deployment"
 
@@ -38,10 +38,10 @@ namespace :deploy do
   end
   task :stop do ; end
   task :restart, :roles => :app, :except => { :no_release => true } do
+    run "cd #{release_path}; bundle exec rake assets:precompile"
     run "rm -rf ~/public_html; ln -s #{release_path}/public ~/public_html"
     run "ln -nfs #{shared_path}/public/.htaccess #{htaccess}"
     run "touch #{release_path}/tmp/restart.txt"
-    run "cd #{release_path}; bundle exec rake assets:precompile"
   end
 end
 
