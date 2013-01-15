@@ -24,7 +24,7 @@ ssh_options[:forward_agent] = true
 
 set :keep_releases, 4
 
-before "db:migrate", "deploy:bundle_gems"
+before "db:update", "deploy:bundle_gems"
 before "db:migrate", "db:create_symlink"
 before "deploy:restart", "db:migrate"
 after "deploy:update", "deploy:restart"
