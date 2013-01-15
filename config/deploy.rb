@@ -26,7 +26,7 @@ set :keep_releases, 4
 
 before "db:migrate", "db:create_symlink"
 before "deploy:restart", "db:migrate"
-after "deploy:update_code", "deploy:bundle_gems"
+after "deploy:update_code", "gems:update"
 after "deploy:update", "deploy:restart"
 after "deploy:update", "deploy:cleanup"
 after "deploy:update", "newrelic:notice_deployment"
@@ -34,7 +34,7 @@ after "deploy:update", "newrelic:notice_deployment"
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
   task :bundle_gems do
-    run "cd #{release_path} && bundle config build.libv8 --with-system-v8 && bundle install --path vendor/bundle --without=test development"
+
   end
   task :stop do ; end
   task :restart, :roles => :app, :except => { :no_release => true } do
@@ -42,6 +42,12 @@ namespace :deploy do
     run "rm -rf ~/public_html; ln -s #{release_path}/public ~/public_html"
     run "ln -nfs #{shared_path}/public/.htaccess #{htaccess}"
     run "touch #{release_path}/tmp/restart.txt"
+  end
+end
+
+namespace :gems do
+  task :update do
+    run "cd #{release_path} && bundle config build.libv8 --with-system-v8 && bundle install --path vendor/bundle --without=test development"
   end
 end
 
