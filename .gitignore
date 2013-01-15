@@ -22,3 +22,5 @@ config/newrelic.yml
 *.swp
 *.out
 
+
+.idea/workspace.xml
