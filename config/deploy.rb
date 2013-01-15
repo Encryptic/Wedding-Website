@@ -24,7 +24,8 @@ ssh_options[:forward_agent] = true
 
 set :keep_releases, 4
 
-before "deploy:assets:precompile", "gems:update"
+after "deploy:update_code", "deploy:bundle_gems"
+before "deploy:bundle_gems", "gems:update"
 before "db:migrate", "db:create_symlink"
 before "deploy:restart", "db:migrate"
 after "deploy:update", "deploy:restart"
@@ -34,11 +35,11 @@ after "deploy:update", "newrelic:notice_deployment"
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
   task :bundle_gems do
-
+    run "cd #{release_path}; bundle exec rake assets:precompile"
   end
   task :stop do ; end
+
   task :restart, :roles => :app, :except => { :no_release => true } do
-    #run "cd #{release_path}; bundle exec rake assets:precompile"
     run "rm -rf ~/public_html; ln -s #{release_path}/public ~/public_html"
     run "ln -nfs #{shared_path}/public/.htaccess #{htaccess}"
     run "touch #{release_path}/tmp/restart.txt"
