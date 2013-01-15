@@ -26,7 +26,7 @@ set :keep_releases, 4
 
 after "deploy:update_code", "deploy:bundle_gems"
 before "deploy:bundle_gems", "gems:update"
-before "db:migrate", "db:create_symlink"
+after "deploy:bundle_gems", "config:create_symlink"
 before "deploy:restart", "db:migrate"
 after "deploy:update", "deploy:restart"
 after "deploy:update", "deploy:cleanup"
@@ -54,13 +54,15 @@ end
 
 # Example From: https://gist.github.com/308763
 # http://github.com/thoughtbot/suspenders/blob/4d9c29a1dfe14a591ac461d5ea8e660f1a642d5b/config/deploy.rb#L40
-namespace :db do
+namespace :config do
   task :create_symlink do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
     run "ln -nfs #{shared_path}/config/email.yml #{release_path}/config/email.yml"
     run "ln -nfs #{shared_path}/config/newrelic.yml #{release_path}/config/newrelic.yml"
     run "ln -nfs #{shared_path}/public/uploads #{release_path}/public/uploads"
   end
+end
+namespace :db do
   task :migrate do
     run "cd #{release_path}; bundle exec rake db:migrate --trace RAILS_ENV='production'"
   end
