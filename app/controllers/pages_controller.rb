@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_filter :auth_required  , :only => [:edit, :new, :destroy, :index]
+  before_filter :auth_required  , :only => [:edit, :new, :create, :update, :destroy, :index]
   
   # GET /pages
   # GET /pages.json
