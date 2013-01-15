@@ -38,7 +38,7 @@ namespace :deploy do
   end
   task :stop do ; end
   task :restart, :roles => :app, :except => { :no_release => true } do
-    run "cd #{release_path}; bundle exec rake assets:precompile"
+    #run "cd #{release_path}; bundle exec rake assets:precompile"
     run "rm -rf ~/public_html; ln -s #{release_path}/public ~/public_html"
     run "ln -nfs #{shared_path}/public/.htaccess #{htaccess}"
     run "touch #{release_path}/tmp/restart.txt"
