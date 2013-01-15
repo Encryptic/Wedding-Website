@@ -24,22 +24,26 @@ ssh_options[:forward_agent] = true
 
 set :keep_releases, 4
 
-after "deploy:update_code", "deploy:bundle_gems"
-before "deploy:bundle_gems", "gems:update"
-after "deploy:bundle_gems", "config:create_symlink"
+
+after "deploy:update_code", "gems:update"
+after "deploy:update", "config:create_symlink"
+after "config:create_symlink", "deploy:asset_precompile"
 before "deploy:restart", "db:migrate"
 after "deploy:update", "deploy:restart"
-after "deploy:update", "deploy:cleanup"
 after "deploy:update", "newrelic:notice_deployment"
+after "deploy:restart", "deploy:cleanup"
 
 # If you are using Passenger mod_rails uncomment this:
 namespace :deploy do
-  task :bundle_gems do
+  # Precompile all of the assets using Exec.
+  task :asset_precompile do
     run "cd #{release_path}; bundle exec rake assets:precompile"
   end
+
   task :stop do ; end
 
   task :restart, :roles => :app, :except => { :no_release => true } do
+    run "ln -nfs #{shared_path}/public/uploads #{release_path}/public/uploads"
     run "rm -rf ~/public_html; ln -s #{release_path}/public ~/public_html"
     run "ln -nfs #{shared_path}/public/.htaccess #{htaccess}"
     run "touch #{release_path}/tmp/restart.txt"
@@ -59,9 +63,9 @@ namespace :config do
     run "ln -nfs #{shared_path}/config/database.yml #{release_path}/config/database.yml"
     run "ln -nfs #{shared_path}/config/email.yml #{release_path}/config/email.yml"
     run "ln -nfs #{shared_path}/config/newrelic.yml #{release_path}/config/newrelic.yml"
-    run "ln -nfs #{shared_path}/public/uploads #{release_path}/public/uploads"
   end
 end
+
 namespace :db do
   task :migrate do
     run "cd #{release_path}; bundle exec rake db:migrate --trace RAILS_ENV='production'"
