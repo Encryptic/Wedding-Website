@@ -1,6 +1,13 @@
 require File.expand_path('../boot', __FILE__)
 
 require 'rails/all'
+if RUBY_VERSION < "1.9"
+  require "rubygems"
+  require "faster_csv"
+  CSV = FCSV
+else
+  require "csv"
+end
 
 if defined?(Bundler)
   # If you precompile assets before deploying to production, use this line

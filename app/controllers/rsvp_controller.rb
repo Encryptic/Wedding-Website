@@ -57,7 +57,13 @@ class RsvpController < ApplicationController
     end
 
     if @guest.save() && @last_madlib.save()
-      ConfirmationMailer.confirmation_email(@guest).deliver
+      if @guest.present?
+        ConfirmationMailer.confirmation_email(@guest).deliver
+      end
+
+      # Mail the Admin regardless of whether or not the user wanted an email.
+      ConfirmationMailer.admin_email(@guest).deliver
+
       respond_to do |format|
         format.html
       end

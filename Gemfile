@@ -11,6 +11,7 @@ group :production do
 end
 
 gem 'json'
+gem 'fastercsv'
 
 #gem 'mandrill-api'
 

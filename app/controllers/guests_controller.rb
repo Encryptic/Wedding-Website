@@ -1,5 +1,6 @@
 class GuestsController < ApplicationController
-  before_filter :auth_required  , :only => [:index, :show, :new, :edit, :create, :update, :destroy]
+  # Expose the validate method to allow the RSVP form to work correctly.
+  before_filter :auth_required, :except => [ :validate ]
 
   # GET /guests
   # GET /guests.json
@@ -9,6 +10,7 @@ class GuestsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @guests }
+      format.csv { render :layout => false }
     end
   end
 

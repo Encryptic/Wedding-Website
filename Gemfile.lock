@@ -47,6 +47,7 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    fastercsv (1.5.5)
     friendly_id (4.0.9)
     highline (1.6.15)
     hike (1.2.1)
@@ -131,6 +132,7 @@ DEPENDENCIES
   capistrano
   coffee-rails (~> 3.2.1)
   execjs (= 1.4.0)
+  fastercsv
   friendly_id
   jquery-rails
   json

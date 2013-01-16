@@ -1,0 +1,9 @@
+<h1 style="font-size: 31px; font-weight: bold; color: #252a32; margin: 0 0 20px 0;">RSVP Report</h1>
+<p style="font-size: 16px; color: #252a32; margin:0; line-height: 21px;">
+Name: <%= "#{@guest.first_name} #{@guest.last_name} " %><br />
+Will Attend: <%= @guest.will_attend %><br />
+Adult Guests: <%= @guest.adult_guests %><br />
+Child Guests: <%= @guest.child_guests %><br />
+Toddler Guests: <%= @guest.toddler_guests %><br />
+RSVP Date: <%= @guest.rsvp_date %>
+</p>
