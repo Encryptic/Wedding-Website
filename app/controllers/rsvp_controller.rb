@@ -57,7 +57,7 @@ class RsvpController < ApplicationController
     end
 
     if @guest.save() && @last_madlib.save()
-      if @guest.present?
+      if @guest.email.present?
         ConfirmationMailer.confirmation_email(@guest).deliver
       end
 
