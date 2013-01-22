@@ -1,6 +1,6 @@
 class Guest < ActiveRecord::Base
 
-  attr_accessible :first_name, :last_name, :email,  :rsvp_date, :updated_at, :will_attend, :adult_guests, :child_guests, :toddler_guests
+  attr_accessible :first_name, :last_name, :email,  :rsvp_date, :updated_at, :will_attend, :adult_guests, :child_guests, :toddler_guests, :code, :private_notes, :notes
 
   validates :first_name, :presence => true
   validates :last_name, :presence => true
